@@ -1,3 +1,17 @@
+<p align="center">
+    <picture>
+    <img alt="logo" src="docs/logo.png" height="250">
+    </picture>
+
+</p>
+
+<p align="center">
+  <a href="https://"><img src="https://img.shields.io/badge/Python-%3E=_3.6-orange?logo=Python&logoColor=white" alt="Python - &gt;= 3.6"></a>
+  <a href="https://"><img src="https://img.shields.io/badge/License-MIT-2ea44f" alt="License - MIT"></a>
+  <a href="https://"><img src="https://img.shields.io/badge/AI-LLM_%2F_GPT-white" alt="AI - LLM / GPT"></a>
+</p>
+
+## Author: Shashank Kanna R
 
 This project implements a robust client-server architecture from scratch, designed to operate within a local network. A designated computer running the server program acts as the central server, while clients connect using the server's IP address. The server efficiently handles multiple clients and features a versatile large language model (LLM) running in two modes:
 
@@ -14,17 +28,39 @@ Clients interact with the server through a command-line interface (CLI), sending
 First, clone the repository to your local machine using the following command:
 
 ```sh
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/MrTechyWorker/SmartLLM-Server.git
 ```
 
 ### Model setup:
 
-#### LLM local setup:
-Download [Ollama](https://github.com/MrTechyWorker/chartokenizer) and follow the instructions in the website to get the model locally.
+**LLM local setup:** Download [Ollama](https://github.com/MrTechyWorker/chartokenizer) and follow the instructions in the website to get the model locally.
 
-#### API_KEY setup:
+**API_KEY setup:** Log on to [Google_Gemini](https://ai.google.dev/gemini-api/docs/api-key) and follow instruction to get the API key.
 
-Log on to [Google_Gemini](https://ai.google.dev/gemini-api/docs/api-key) and follow instruction to get the API key.
+---
+
+View **Note** metioned below before proceeding.
+
+---
+
+Make sure to update the ```server_local.py``` with the model name installed qith ollama,
+
+```python
+def response(msg):  
+  messages = [
+    {
+      'role': 'user',
+      'content': msg,
+    },
+  ]
+  response = ollama.chat('model_name', messages=messages) # update model name here
+  return response['message']['content']
+```
+and also update your api key here
+```python
+genai.configure(api_key="API-KEY")
+model = genai.GenerativeModel('gemini-pro')
+```
 
 ### Installing Dependencies
 
@@ -48,24 +84,6 @@ pip install google-api-core google-generativeai ollama
 
 This will install all the necessary packages for your project.
 
-Make sure to update the ```server_local.py``` with the model name installed qith ollama,
-
-```python
-def response(msg):  
-  messages = [
-    {
-      'role': 'user',
-      'content': msg,
-    },
-  ]
-  response = ollama.chat('model_name', messages=messages) # update model name here
-  return response['message']['content']
-```
-and also update your api key here
-```python
-genai.configure(api_key="API-KEY")
-model = genai.GenerativeModel('gemini-pro')
-```
 ---
 
 # Quick Start 🏁
@@ -80,7 +98,7 @@ then, navigate to the directory cloned and,
 Upon running the code, the Server Port will be prompted which is as per the user wish **usually 4444** and the server ip will be displayed in the output.
   <p align="left">
     <picture>
-    <img alt="logo" src="/docs/server_out.png" height="170">
+    <img alt="logo" src="/docs/server_out.png" height="90">
     </picture>
   </p>
 
