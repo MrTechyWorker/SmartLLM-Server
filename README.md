@@ -17,7 +17,7 @@ First, clone the repository to your local machine using the following command:
 git clone https://github.com/your-username/your-repo-name.git
 ```
 
-### Installing Dependencies
+### Model setup:
 
 #### LLM local setup:
 Download [Ollama](https://github.com/MrTechyWorker/chartokenizer) and follow the instructions in the website to get the model locally.
