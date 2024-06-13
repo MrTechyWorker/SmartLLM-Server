@@ -43,7 +43,7 @@ View **Note** metioned below before proceeding.
 
 ---
 
-Make sure to update the ```server_local.py``` with the model name installed qith ollama,
+Make sure to update the ```server_local.py``` with the model name installed with ollama,
 
 ```python
 def response(msg):  
