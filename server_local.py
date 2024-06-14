@@ -65,7 +65,7 @@ def start():
 	server.listen()
 	print(f"[LISTENING] server is listening on {SERVER}")
 	while True:
-		conn, addr = server.accept() # blockling statement
+		conn, addr = server.accept() # blocking statement
 		thread = t.Thread(target=handle_client, args=(conn,addr))
 		thread.start()
 		print(f"[ACTIVE CONNECTIONS] {t.active_count() -1 }") 
